@@ -1,5 +1,5 @@
 ---
-title: "Erm... What the fish?"
+title: "Erm... What the fish???"
 output: html_notebook
 ---
 
@@ -44,7 +44,7 @@ tm_shape(precs) +
 woo_map1 = tm_shape(precs) + 
   tm_fill(col= "forestgreen") +
   tm_borders() +  
-  tm_text("Ward_Precinct", size = "AREA", col = "darkmagenta")
+  tm_text("Ward_Precinct", size = "AREA", col = "magenta")
 ```
 # Polling Stations 
 Your task is to make a new section that imports the voting polling stations and places them on a map.
