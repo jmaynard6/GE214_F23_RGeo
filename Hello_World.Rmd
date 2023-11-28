@@ -66,5 +66,34 @@ woo_map1+woo_map2
 ```{r}
 library(dplyr)
 results = read.csv("data/worc_23_election_atlarge.csv")
+head(results)
 ```
+#joining
+
+```{r}
+prec_results = left_join(precs, results, by=c ("Ward_Precinct"="ward"))
+head (prec_results)
+```
+#making a map
+
+```{r}
+tm_shape(prec_results) + tm_polygons("creamer")
+
+```
+#candidate names
+```{r}
+candidates = colnames(prec_results[8:19])
+mapz = list() 
+breakz = c(0,400, 600)
+for (i in candidates[1:12]){
+  
+
+
+  themap= tm_shape(prec_results) + tm_polygons(i, breaks = breakz) + tm_layout(legend.outside = TRUE)
+  mapz<-append(mapz, list(themap))
+}
+
+tmap_arrange(mapz, ncol=4)
+```
+
 
